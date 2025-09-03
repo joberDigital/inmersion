@@ -1,0 +1,984 @@
+<!-- //https://youtu.be/KHkTthcua2c -->
+<!-- https://youtu.be/t4EHGm_Epzk
+ -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre de tu Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        /* Estilos CSS adicionales para el select */
+        #select-container-audio {
+            padding: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+padding-bottom: 40px;
+        }
+
+        #preguntas-select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #respuesta-faq {
+            margin-top: 15px;
+            padding: 10px;
+            border-left: 3px solid #007bff;
+            background-color: #f9f9f9;
+            display: none; /* Oculta la respuesta por defecto */
+        }
+
+
+        
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+
+    /* background-color: #f4f4f4; */
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+    
+}
+
+main {
+    max-width: 960px;
+    margin: auto;
+    padding: 20px;
+    /* overflow: hidden; */
+
+}
+
+section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+}
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+header nav li {
+    margin: 0 15px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+h2 {
+    color: #0056b3;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+.cite{
+    opacity: 40%;
+border-style: ridge;
+display: flex;
+justify-content: end;
+padding-right: 20px;
+box-shadow:  #2d5ef6 inset -1px 3px 10px;
+}
+/* .parrafo{
+    display: flex;
+    flex-wrap: wrap;
+justify-content: space-evenly;
+padding-top:50px ;
+margin: 30px 20px 0 20px;
+background-color: #fcf9f9;
+box-shadow: #333 10px 10px 10px;
+height: 100px;
+font-weight: bold;
+/* text-shadow: #2d5ef6 -1px 3px 30px; */
+
+  
+
+.parrafo1 {
+display: block;
+text-align: end;
+margin:40px 40px 0 240px;
+box-shadow: #333 10px 10px 10px;
+/* text-shadow: #2d5ef6 -1px 3px 30px; */
+      font-family: 'Georgia', serif;
+        font-weight: 400;
+  font-style: normal;
+
+
+}
+/* cita postcads */
+.cita-biblioteca {
+  font-family: "Story Script", sans-serif;
+
+
+
+      font-size: 1.2em;
+      /* font-style: italic; */
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px 50px 30px 20px;
+      /* background: #fbf6f0; */
+      background-color: #fff;
+      border-left: 6px solid #d5bc8c;
+      border-right: 6px solid #d5bc8c;
+      text-align: center;
+      position: relative;
+      box-shadow: #333 10px 10px 10px;
+font-weight:500;
+
+    }
+    .cita-biblioteca::before,
+    .cita-biblioteca::after {
+      content: '“';
+      font-size: 3em;
+      color: #d5bc8c;
+      position: absolute;
+    }
+    .cita-biblioteca::before {
+      left: 10px;
+      top: 0;
+    }
+    .cita-biblioteca::after {
+      content: '”';
+      right: 10px;
+      bottom: 0;
+    }
+    .fuente-cita {
+      display: block;
+      margin-top: 15px;
+      font-size: 1em;
+      color: #a1a1a1;
+      font-style: normal;
+    }
+/* ------------------- */
+.container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(115,143,193,0.10), 0 2px 4px rgba(30,60,140,0.04);
+      max-width: 480px;
+      padding: 2em 1.5em;
+      margin-bottom: 1em;
+      flex: 1 1 350px;
+      min-width: 320px;
+    }
+    .card-content {
+      /* Estado cerrado inicialmente */
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 3s, opacity 2.5s;
+      will-change: max-height, opacity;
+    }
+    .toggle-btn {
+      background: #ff0101;
+      box-shadow: #333 10px 5px 10px; 
+      border-radius: 100%;
+    width: 100%;
+    }
+    .toggle-btn:hover {
+      background: #173bb1;
+      border-radius: 100%;
+    }
+
+    .card-content.show {
+      max-height: 1200px; /* Ajusta este valor si tu contenido es más largo */
+      opacity: 1;
+      transition: max-height 5s, opacity 2.5s;
+    }
+    .card h2 {
+      font-size: 1.2em;
+      color: #2d5ef6;
+      margin-bottom: .75em;
+      border-bottom: 1px solid #eee;
+      padding-bottom: .4em;
+    }
+    .icon {
+      font-size: 1.2em;
+      margin-right: .5em;
+      color: #2d5ef6;
+      vertical-align: middle;
+    }
+    .card p, .card ul {
+      font-size: 1em;
+    }
+    .card ul {
+      margin: 0.5em 0 1em 1.2em;
+      padding: 0;
+    }
+    .card ul::after {
+      margin: 0.5em 0 1em 1.2em;
+      padding: 0;
+    }
+   
+
+    .card ::before{
+      margin: 0 0 0.4em 0;
+      content: "^";
+      color: #e6f0;
+    }
+    .card strong {
+      background: #e6f0ff;
+      padding: 0 .2em;
+      border-radius: 0.25em;
+    }
+p {
+    margin-bottom: 15px;
+}
+
+.slider-container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+}
+
+.slide {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* movie */
+
+.full-width-image {
+            position: relative;
+            width: auto;
+            height: 85vh;
+            overflow: hidden;
+            cursor: grab; /* Muestra el cursor de "agarrar" cuando está inactivo */
+        }
+        
+        .full-width-image.dragging {
+            cursor: grabbing; /* Muestra el cursor de "agarrando" cuando se está arrastrando */
+        }
+
+        #imagenMovible {
+            position: absolute;
+transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out;
+            user-select: none; /* Evita que la imagen se seleccione como texto */
+
+        }
+.full-width-image img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    transition: transform 1.5 ease-in-out;
+    object-fit: cover;
+    
+}
+
+.full-width-image:hover{
+    height: 600px;
+}
+
+.full-width-image  img:hover {
+    height: 700px;
+overflow: hidden;
+transition: transform 1.5 ease-in-out;
+}
+
+/* categorias */
+#categorias{
+    display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 96%;
+            max-width: 100%;
+        
+}
+.accordion-item {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            max-width: 96%;
+        }
+
+        .accordion-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .accordion-image {
+            width: 96%;
+            height: 20px;
+padding: 10px;
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        
+        .accordion-button.active ~ .accordion-image {
+            opacity: 0;
+            height: 0;
+        }
+
+        .accordion-button {
+            background-color: #007bff;
+            color: white;
+            padding: 18px;
+            padding-right: 20px;
+            width:  96%;
+            height: 80px;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: background-color 0.3s ease, border-radius 0.3s ease;
+        margin: 5px auto;
+        }
+
+        .accordion-button:hover {
+            background-color: #0056b3;
+        }
+
+        .accordion-button.active {
+            background-color: #004d99;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .accordion-content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+        }
+
+        .accordion-content.blur {
+            filter: blur(2px);
+        }
+
+        .accordion-content.show {
+            max-height: 800px;
+            padding: 18px;
+        }
+
+        .accordion-content p {
+            margin: 0;
+            padding: 12px 0;
+            border-radius: 6px;
+        }
+
+        .accordion-content p:nth-child(odd) {
+            background-color: #e9ecef;
+        }
+
+        .accordion-content p:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+/* __________________ */
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* carrusel */
+/* body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+} */
+.seccionAudio{
+    display: flex;
+justify-content: space-around;
+background-color: #fff;
+
+}
+.carousel-container {
+    width: 600px; /* Ancho fijo para el carrusel */
+    max-width: 90%; /* Máximo el 90% del ancho de la pantalla */
+    position: relative;
+    overflow: hidden; /* Esto es crucial para que las imágenes se deslicen */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+    padding: 10px;
+}
+
+.carousel-track {
+    display: flex; /* Muestra las imágenes en una fila */
+    transition: transform 0.5s ease-in-out; /* Animación de deslizamiento */
+}
+
+.carousel-track img {
+    width: 100%; /* Cada imagen ocupa el 100% del ancho del contenedor */
+    height: 350px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Asegura que las imágenes cubran el espacio sin distorsionarse */
+    flex-shrink: 0; /* Impide que las imágenes se encojan */
+    border-radius: 4px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+    z-index: 10;
+    outline: none;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.indicator {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: #717171;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>HERRAMIENTAS DIGITALES<br>Herramientas Generales de Marketing Digital</h1>
+
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#negocio">Negocio</a></li>
+                <li><a href="#preguntas">Preguntas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="negocio">
+            <h2>📈
+                Claves y Tendencias del Marketing Digital 2025
+                <hr>
+                </h2>
+                <blockquote class="cita-biblioteca">
+                <cite class="fuente-cita "><q >Elon Musk en el cielo</q>
+                    <br><q>En la tierra Bill Gates</q>
+                    <br><q>¡Gloria a Dios en las alturas, y en la tierra paz, buena voluntad para con los hombres!</q>
+
+ </cite>
+                    <span class="parrafo1">A los Dioses del internet...
+                    </span>
+                </blockquote> 
+            </section>
+
+        <section id="diapositivas-1">
+            <h2> ¿Cómo ha evolucionado el marketing?</h2>
+            <div class="slider-container">
+                <div class="slide">
+                    <!-- <img src="slide1.jpg" alt="Diapositiva 1"> -->
+                     <iframe width="560" height="315" src="https://www.youtube.com/embed/KHkTthcua2c?si=rHnRrE7YhnVx-Nvl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+
+                </div>
+        </section>
+        
+        <section  class="full-width-image ">
+            <h2> Mapa Mental</h2>
+
+            <img  id="imagenMovible" src="./image/diagrama.png" alt="Imagen a ancho y alto completo">
+        </section>
+
+
+
+<!-- categorias -->
+<section id="categorias" class="categorias">
+        <!-- ¿Qué es? -->
+        <div class="accordion-item">
+            <button class="accordion-button">¿Qué es?</button>
+            <div class="accordion-image" style="background-image: url('https://placehold.co/600x40/007BFF/FFFFFF?text=Concepto')"></div>
+            <div class="accordion-content">
+                <p>Conjunto de estrategias, técnicas y herramientas</p>
+                <p>Aplicado a canales digitales</p>
+                <p>Mejora comercialización de producto/servicio</p>
+                <p>Enfoque en cliente y relación</p>
+                <p>Esencial para empresas en era de internet</p>
+            </div>
+        </div>
+
+        <!-- Mitos -->
+        <div class="accordion-item">
+            <button class="accordion-button">Mitos</button>
+            <div class="accordion-image" style="background-image: url('https://placehold.co/600x40/007BFF/FFFFFF?text=Mitos')"></div>
+            <div class="accordion-content">
+                <p>Es gratuito</p>
+                <p>Todo es vender</p>
+                <p>Solo son medios sociales</p>
+                <p>Debo estar en todas las plataformas</p>
+                <p>Suple al marketing tradicional</p>
+            </div>
+        </div>
+
+        <!-- Características -->
+        <div class="accordion-item">
+            <button class="accordion-button">Características</button>
+            <div class="accordion-image" style="background-image: url('https://placehold.co/600x40/007BFF/FFFFFF?text=Características')"></div>
+            <div class="accordion-content">
+                <p>Segmentación precisa</p>
+                <p>Accesibilidad de precio</p>
+                <p>Audiencia definida</p>
+                <p>Intención de compra</p>
+                <p>Duración de impacto (longevidad)</p>
+                <p>Medición de rentabilidad</p>
+                <p>Escalable</p>
+                <p>Medible</p>
+                <p>Mejorable</p>
+                <p>Tecnológico</p>
+                <p>Creativo</p>
+                <p>Interactivo</p>
+                <p>Versátil</p>
+                <p>Personalizable</p>
+            </div>
+        </div>
+
+        <!-- Ventajas -->
+        <div class="accordion-item">
+            <button class="accordion-button">Ventajas</button>
+            <div class="accordion-image" style="background-image: url('https://placehold.co/600x40/007BFF/FFFFFF?text=Ventajas')"></div>
+            <div class="accordion-content">
+                <p>Mayor alcance y visibilidad</p>
+                <p>Segmentación precisa y personalización</p>
+                <p>Relación directa con el cliente</p>
+                <p>Medición y optimización en tiempo real</p>
+                <p>Mayor rentabilidad y ROI optimizado</p>
+                <p>Adaptabilidad y mejora continua</p>
+                <p>Contenidos relevantes y no invasivos</p>
+                <p>Integración con ventas y servicio al cliente</p>
+            </div>
+        </div>
+        
+        <!-- Estrategias y Tácticas (Tipos) -->
+        <div class="accordion-item">
+            <button class="accordion-button">Estrategias y Tácticas (Tipos)</button>
+            <div class="accordion-image" style="background-image: url('https://placehold.co/600x40/007BFF/FFFFFF?text=Estrategias')"></div>
+            <div class="accordion-content">
+                <p>Inbound Marketing</p>
+                <p>Outbound Marketing</p>
+                <p>Email Marketing</p>
+                <p>Publicidad en Redes Sociales</p>
+                <p>Marketing Conversacional</p>
+                <p>Marketing de Permiso</p>
+                <p>Marketing Relacional</p>
+                <p>Marketing de Videos</p>
+                <p>Influencer Marketing</p>
+                <p>Marketing de Afiliados</p>
+                <p>Marketing de Referidos</p>
+            </div>
+        </div>
+        
+        <!-- Herramientas -->
+        <div class="accordion-item">
+            <button class="accordion-button">Herramientas</button>
+            <div class="accordion-image" style="background-image: url('https://placehold.co/600x40/007BFF/FFFFFF?text=Herramientas')"></div>
+            <div class="accordion-content">
+                <p>Sitio Web</p>
+                <p>Search (SEO/SEM)</p>
+                <p>Social Media</p>
+                <p>Publicidad Display</p>
+                <p>Mobile Marketing</p>
+                <p>Marketing Automation</p>
+                <p>Google Analytics</p>
+                <p>Herramientas SEO (Ahrefs, Moz)</p>
+                <p>Plataformas de webinars (Zoom, GoToWebinar)</p>
+                <p>Google Ads</p>
+                <p>Meta Business Suite (Facebook Ads, Instagram Ads)</p>
+                <p>Software para eventos (Bizzabo, Eventbrite)</p>
+            </div>
+        </div>
+
+        <!-- Estrategia y Métricas Digitales -->
+        <div class="accordion-item">
+            <button class="accordion-button">Estrategia y Métricas Digitales</button>
+            <div class="accordion-image" style="background-image: url('https://placehold.co/600x40/007BFF/FFFFFF?text=Mediciones')"></div>
+            <div class="accordion-content">
+                <p>Funnel Digital (Embudo de Conversión)</p>
+                <p>Objetivos de Comunicación</p>
+                <p>Objetivos específicos (SMART)</p>
+                <p>Estrategia</p>
+                <p>Tácticas</p>
+                <p>Indicadores por Objetivo (KPIs)</p>
+                <p>Metas</p>
+            </div>
+        </div>
+        
+        <!-- Comportamiento del Consumidor Digital -->
+        <div class="accordion-item">
+            <button class="accordion-button">Comportamiento del Consumidor Digital</button>
+            <div class="accordion-image" style="background-image: url('https://placehold.co/600x40/007BFF/FFFFFF?text=Comportamiento')"></div>
+            <div class="accordion-content">
+                <p>Consumidores más exigentes y cambiantes</p>
+                <p>Resistencia a publicidad online (adolescentes y adultos mayores)</p>
+                <p>Uso de Redes Sociales (México)</p>
+                <p>Actividad en Redes Sociales (México)</p>
+                <p>Dispositivos de Tecnología complementarios</p>
+                <p>Métodos de Pago Online (México)</p>
+                <p>Penetración y Conexión de Dispositivos (México)</p>
+                <p>Seguimiento de Marcas en Redes Sociales (97% usuarios)</p>
+                <p>Seguridad de Información Online</p>
+                <p>Comprador Online</p>
+                <p>Movilidad gana terreno en transacciones</p>
+                <p>Penetración de internet en México en 2019 (75.8 millones de internautas)</p>
+                <p>El anuncio online fortalece la compra</p>
+            </div>
+        </div>
+        
+        <!-- Tendencias para 2025 -->
+        <div class="accordion-item">
+            <button class="accordion-button">Tendencias para 2025</button>
+            <div class="accordion-image" style="background-image: url('https://placehold.co/600x40/007BFF/FFFFFF?text=Futuro')"></div>
+            <div class="accordion-content">
+                <p>Modelos de Marketing Mix (MMM)</p>
+                <p>Agentes de IA (Director de simplificación)</p>
+                <p>Compras a través de videos de producto</p>
+                <p>Marketing Consciente</p>
+                <p>Marketing de Aplicaciones 3.0 (impulsado por IA)</p>
+                <p>Ética del Marketing</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+        <section id="informe">
+           <div><h2>Informe Completo 
+            <cite class="cite">Estrategias, Tendencias y Ética </cite></h2>
+            </div> 
+
+            <div class="container">
+                <!-- Card 1 -->
+        <div class="card">
+              <h2><span class="toggle-btn icon">💡
+                      </span>1. ¿Qué es el marketing digital y por qué es importante para las empresas hoy en día?</h2>
+            <div class="card-content">
+                <blockquote class="cita-biblioteca"><p>
+            El marketing digital es un conjunto de estrategias, técnicas y herramientas aplicadas en el ámbito de internet y otros canales digitales para promocionar productos o servicios. Su objetivo principal es conectar con audiencias específicas, generar interacción, impulsar conversiones y fortalecer la presencia de una marca en el ecosistema online.
+          </p>
+          <p>
+            Es crucial en la era actual porque permite una segmentación precisa de la audiencia, mediciones en tiempo real y una optimización constante de las campañas, lo que lo hace altamente eficiente y adaptable. Además, ofrece un mayor alcance y visibilidad global en un entorno donde la mayoría de los consumidores están en línea, facilita la relación directa con el cliente, y es generalmente más rentable que el marketing tradicional, ofreciendo un alto retorno de inversión (ROI). No se trata solo de vender, sino de construir autoridad, confianza y relaciones a largo plazo con los clientes.
+          </p>
+        </div>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="card">
+          <h2><span class="toggle-btn icon">🔄</span>2. ¿Cuáles son las diferencias clave entre el Inbound y Outbound Marketing, y cómo pueden complementarse?</h2>
+          <div class="card-content">
+<blockquote class="cita-biblioteca">
+                <p>
+            El Inbound Marketing se enfoca en atraer clientes de forma orgánica y no intrusiva, creando contenido útil, personalizado y de valor que responda a sus necesidades. Se basa en estrategias como SEO, marketing de contenidos, email marketing segmentado y automatización, buscando generar confianza y educar al usuario a lo largo de su recorrido de compra. Los canales comunes incluyen blogs, redes sociales y webinars. Su costo por adquisición tiende a ser más bajo a largo plazo y construye relaciones duraderas.
+          </
+          </blockquote>p>
+          <p>
+            Por otro lado, el Outbound Marketing se refiere a las acciones de promoción más tradicionales y directas, donde la marca inicia el contacto con el consumidor a través de mensajes publicitarios masivos. Incluye canales como publicidad paga (Google Ads, Meta Ads), llamadas en frío, correos masivos y eventos presenciales. Aunque puede parecer más intrusivo, el outbound se ha modernizado con herramientas que permiten una segmentación más precisa y una mejor medición. Su impacto suele ser más inmediato, aunque con un costo inicial más alto.
+          </p>
+          <ul>
+            <li><strong>Inbound:</strong> genera conciencia y confianza</li>
+            <li><strong>Outbound:</strong> acelera procesos de venta y llega a nuevos mercados o activa leads ya captados</li>
+          </ul>
+          <p>
+            Una estrategia híbrida, que combine Inbound para nutrir y educar al mercado y Outbound para acelerar decisiones en etapas clave, puede maximizar resultados, acortar ciclos de venta y aumentar las conversiones.
+          </p>
+        </div>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="card">
+        <h2><span class="toggle-btn icon">🔐</span>3. ¿Qué papel juega la ética en el tratamiento de datos dentro del marketing digital?</h2>
+        <div class="card-content">
+<blockquote class="cita-biblioteca">
+                <p>
+        El tratamiento ético de los datos es una responsabilidad fundamental y una estrategia clave para el éxito sostenible en el marketing digital. Implica gestionar la información personal de los usuarios incorporando los valores y principios de la empresa. Esto no solo garantiza la privacidad y seguridad de los usuarios, sino que también fortalece la relación entre las marcas y su audiencia, generando un mayor nivel de confiabilidad.
+        </p>
+        </blockquote>
+        <p>
+        Para un tratamiento ético de los datos, es crucial tener en cuenta:
+        </p>
+        <ul>
+        <li>Consentimiento Informado: Asegurar que los usuarios entienden qué datos se recopilan y cómo se utilizarán.</li>
+        <li>Transparencia Total: Cumplir con las leyes de privacidad y proteger la reputación de la marca.</li>
+        <li>Seguridad de los Datos: Mantener la confianza de los clientes y evitar sanciones legales por el mal manejo de la información.</li>
+        </ul>
+        <p>
+        Un manejo inadecuado de los datos puede llevar a graves consecuencias, como sanciones legales, pérdida de reputación, disminución de la base de clientes y afectación en la relación con stakeholders. En un entorno digital cada vez más regulado y consciente de la privacidad, adoptar prácticas responsables es un compromiso necesario para construir un ecosistema digital más transparente, justo y respetuoso.
+        </p>
+        </div>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="card">
+        <h2><span class="toggle-btn icon">🤖</span>4. ¿Qué son los "agentes de IA" y cómo transformarán el marketing digital en 2025?</h2>
+        <div class="card-content">
+<blockquote class="cita-biblioteca">
+                <p>
+        Los agentes de IA son sistemas de software inteligentes capaces de procesar información multimodal, lo que les permite razonar, adaptarse y anticipar para gestionar flujos de trabajo complejos. En el marketing digital de 2025, se perfilan como un "Director de Simplificación", ayudando a las empresas a manejar la complejidad de gestionar y procesar grandes volúmenes de datos.
+        </p>
+        </blockquote>
+        <p>
+        Tradicionalmente, las empresas almacenan datos en sistemas diferentes, creando silos y dificultades para combinarlos y utilizarlos eficazmente. Los agentes de IA pueden eliminar esta complejidad, permitiendo a los equipos de marketing acceder a la inteligencia autónoma e integrarla sin problemas en sus operaciones. Por ejemplo, pueden ayudar a analizar datos de clientes, generar contenido, personalizar experiencias y optimizar campañas de manera mucho más eficiente y con menos intervención manual, facilitando la toma de decisiones basada en datos en tiempo real.
+        </p>
+        </div>
+        </div>
+        
+        <!-- Card 5 -->
+        <div class="card">
+        <h2><span class="toggle-btn icon">🎬</span>5. ¿Cuáles son las principales tendencias y oportunidades en el marketing de video para 2025?</h2>
+        <div class="card-content">
+<blockquote class="cita-biblioteca">
+                <p>
+        El marketing de video continuará su crecimiento exponencial en 2025, especialmente impulsado por la tendencia de los usuarios a comprar lo que ven. El video marketing genera un mayor engagement que otros formatos y es muy efectivo para transmitir mensajes de forma clara y emocional, aumentando las tasas de conversión.
+        </p>
+        </blockquote>
+        <p>Las oportunidades clave para los profesionales del marketing incluyen:</p>
+        <ul>
+        <li>Configurar tiendas con videos: Integrar experiencias de compra directamente en videos de plataformas como YouTube, vinculando Google Merchant Center y feeds de productos. Esto permite a los usuarios comprar directamente desde los videos.</li>
+        <li>Convertir anuncios en escaparates: Utilizar campañas de Generación de Demanda con feeds de productos para transformar anuncios en un escaparate virtual en plataformas visuales de YouTube y Google, incrementando el descubrimiento de productos y la visita a puntos de venta.</li>
+        <li>Colaborar con creadores de contenido: Aprovechar el alcance y la credibilidad de los influencers para promocionar productos a través de anuncios de colaboración, añadiendo feeds de productos para facilitar la compra con un solo clic.</li>
+        </ul>
+        <p>
+        La clave del éxito reside en crear videos educativos, demostraciones de productos o testimonios de clientes que sean cortos, atractivos, de alta calidad, y que incluyan subtítulos y llamadas a la acción claras. Publicar contenido con frecuencia y optimizarlo con palabras clave adecuadas también es fundamental para generar confianza y recordar la marca.
+        </p>
+        </div>
+        </div>
+        
+        <!-- Card 6 -->
+        <div class="card">
+        <h2><span class="toggle-btn icon">📱</span>6. ¿Cómo ha evolucionado el marketing de aplicaciones móviles y cuál es su enfoque en 2025?</h2>
+        <div class="card-content">
+<blockquote class="cita-biblioteca">
+                <p>
+        El marketing de aplicaciones móviles ha evolucionado significativamente, pasando de priorizar las descargas a centrarse en la interacción del usuario dentro de la aplicación. En 2025, el enfoque estará en conseguir acciones específicas en la app, como compras, descubrimientos de funciones o chats en vivo.
+        </p>
+        </blockquote>
+        <p>
+        La inteligencia artificial es el motor de esta evolución, mejorando la experiencia del usuario y promoviendo la interacción. Las marcas están utilizando la IA para crear funcionalidades innovadoras (como Birdbrain de Duolingo o AI DJ de Spotify) que guían a los usuarios hacia las acciones deseadas.
+        </p>
+        <p>Para tener éxito en esta nueva era del marketing de aplicaciones, es esencial:</p>
+        <ul>
+        <li>Claridad en el valor: Demostrar el valor de las funciones impulsadas por IA, tanto en la página de la tienda de aplicaciones como en los anuncios.</li>
+        <li>Llegar a los usuarios adecuados: Ajustar las estrategias para atraer a usuarios con mayor probabilidad de interactuar con la aplicación o realizar compras dentro de ella.</li>
+        </ul>
+        <p>
+        La combinación de IA con métodos probados como las notificaciones push y los modelos de suscripción será crucial para multiplicar las interacciones y asegurar el crecimiento de las aplicaciones.
+        </p>
+        </div>
+        </div>
+        <!-- Card MMM -->
+        <div class="card">
+        <h2><span class="toggle-btn icon">📊</span>7. ¿Qué es el Marketing Mix Modeling (MMM) y por qué resurgirá en 2025 como una herramienta clave de medición?</h2>
+        <div class="card-content">
+<blockquote class="cita-biblioteca">
+                <p>
+        El Marketing Mix Modeling (MMM) es una metodología que ayuda a las marcas a entender qué estrategias y canales de marketing son realmente efectivos para lograr buenos resultados de negocio. Tradicionalmente complejos y costosos, los MMM están resurgiendo en 2025 como una herramienta clave de medición debido a la fragmentación de medios, la optimización de presupuestos y los cambios en la privacidad de los datos.
+        </p>
+        </blockquote>
+        <p>Las novedades para 2025 que impulsan su resurgimiento son:</p>
+        <ul>
+        <li>Mayor granularidad: Los MMM actuales pueden combinarse con otras metodologías, como pruebas de incrementalidad y atribución, para ofrecer insights más detallados sobre el rendimiento de los diferentes medios.</li>
+        <li>Más disponibilidad: Herramientas como Meridian de Google, un MMM de código abierto con acceso a datos de Google y YouTube, buscan hacer estas soluciones más fiables y transparentes para un público global.</li>
+        <li>Insights más rápidos: Los MMM modernos pueden proporcionar análisis en tiempo real, lo que permite a las empresas adaptarse rápidamente a los cambios en la economía y la demanda.</li>
+        </ul>
+        <p>
+        Dominar la medición con MMM en 2025 implicará determinar las métricas relevantes, planificar la asignación de la inversión en medios y mantener un calendario de experimentos para una optimización constante.
+        </p>
+        </div>
+        </div>
+        
+        <!-- Card Marketing Consciente -->
+        <div class="card">
+        <h2><span class="toggle-btn icon">🧠</span>8. ¿Cómo impacta el "marketing consciente" en la relación con el consumidor y qué implica para las marcas en 2025?</h2>
+        <div class="card-content">
+<blockquote class="cita-biblioteca">
+                <p>
+        El "marketing consciente" surge como un antídoto a la sobrecarga de información que experimentan los consumidores, quienes cada vez más buscan escapar de la sobreestimulación (fenómenos como el "dopamine fasting"). Dos tercios de los consumidores admiten que retrasan o evitan tomar decisiones cuando se enfrentan a demasiadas opciones. Esto presenta una oportunidad para las marcas de destacar al fomentar conexiones más significativas y aliviar la tensión en la toma de decisiones.
+        </p>
+        </blockquote>
+        <p>Para las marcas en 2025, el marketing consciente implica:</p>
+        <ul>
+        <li>Centrarse en la estrategia de datos: Recopilar y analizar datos de clientes con su consentimiento es fundamental para identificar sus necesidades y preferencias personales, permitiendo ofrecer experiencias relevantes en lugar de bombardear con información no deseada.</li>
+        <li>Priorizar el bienestar del cliente: Diseñar estrategias que muestren consideración por el estado mental del consumidor, ofreciendo soluciones claras y personalizadas que reduzcan la fatiga de elección.</li>
+        <li>Forjar relaciones auténticas: Al ser menos intrusivos y más enfocados en el valor, las marcas pueden construir una confianza duradera y fomentar la fidelización a largo plazo.</li>
+        </ul>
+        <p>
+        En esencia, el marketing consciente promueve la filosofía de "menos es más", donde la calidad y la relevancia del mensaje, obtenidas a través de un uso ético y consentido de los datos, son clave para conectar genuinamente con la audiencia.
+        </p>
+        </div>
+        </div>
+            <p>_______________________________________🌙</p>
+        </section>
+
+        <section id="diapositivas-2">
+            <h2>El anuncio Online</h2><cite class="cite">
+            comprador</cite><br>
+            <div class="slider-container">
+                <div class="slide">
+                    <!-- <img src="slide3.jpg" alt="Diapositiva 3">
+                     -->
+                    <iframe width="600px" height="315" src="https://www.youtube.com/embed/t4EHGm_Epzk?si=M3W8TsB6TrMapOlV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                </div>
+                <div class="slide">
+                    <img src="slide4.jpg" alt="Diapositiva 4">
+                </div>
+            </div>
+        </section>
+
+        <section id="select-container-audio" >
+            <h2>Marketing de contenidos
+            </h2>
+            <cite class="cite">Cálogo de episodes Frecuentes</cite>
+            <p>Selecciona una pregunta para ver la respuesta.</p>
+            <select id="preguntas-select">
+                <option value="all">Selecciona una pregunta...</option>
+                <option value="respuesta1">episode 1?</option>
+                <option value="respuesta2">episode 2?</option>
+            </select>
+
+
+            <blockquote class="cita-biblioteca">------------------------------♥♥♥---
+                <cite id="respuesta-faq" class="fuente-cita"></cite>
+                </blockquote>
+
+<div id="seccioAudio" class="seccionAudio">
+            <!-- https://open.spotify.com/episode/1VINygStk0pViH18qSvAok?si=YlUM1A3uRiarJqc1e58raQ -->
+            <iframe id="audio-faq" data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/1VINygStk0pViH18qSvAok?utm_source=generator" width="30%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <!-- loop  = arrancar audio     -->
+<!-- carrusel -->
+            <div id="carruseldesdehtml" class="carousel-container">
+                <div class="carousel-track">
+                    <img src="image/catorce.jpg" alt="Imagen 6">
+                    <img src="image/cinco.jpg" alt="Imagen 7">
+                    <img src="image/cuatro.jpg" alt="Imagen 8">
+                    <img src="image/diez.png" alt="Imagen 7">
+                    <img src="image/doce.jpg" alt="Imagen 8">
+                    <img src="image/nueve.jpg" alt="Imagen 7">
+                    <img src="image/ocho.gif" alt="Imagen 8">
+                    <img src="image/seis.gif" alt="Imagen 7">
+                    <img src="image/tres.png" alt="Imagen 8">
+                    <img src="image/uno.jpg" alt="Imagen 7">
+                </div>
+        
+                <button class="carousel-button prev">❮</button>
+                <button class="carousel-button next">❯</button>
+        
+                <div class="carousel-indicators">
+                    <!-- Los indicadores se generarán con jQuery -->
+                </div>
+            </div>
+</div>
+       
+       
+        </section>
+
+</a>
+
+    </main>
+    
+    <footer>
+        
+        <p>&copy; 2025 <a class="toggle-btn" href="https://notebooklm.google.com/notebook/32f531b2-3298-427f-a047-183be2bf4c88">
+            Inmersión IA.
+        </a>   Todos los derechos reservados.</p>
+        <p>Síguenos en las redes sociales | <a href="#">Facebook</a> | <a href="#">Twitter</a></p>
+    </footer>
+
+    <script  src="https://dl.dropboxusercontent.com/s/2y9inru9xilost69o724k/script.js?rlkey=ldqysq6ow9qcmc7js6j14nkof&script.js?raw=1">
+
+    </script>
+
+</body>
+</html>
